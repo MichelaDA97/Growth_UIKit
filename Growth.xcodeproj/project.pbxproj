@@ -17,6 +17,9 @@
 		2CE107A02BB1DE40003724BF /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1079F2BB1DE40003724BF /* Activities.swift */; };
 		2CE107A52BB2C795003724BF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A42BB2C795003724BF /* Data.swift */; };
 		2CE107A72BB2CB58003724BF /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */; };
+		2CE107AA2BB2E097003724BF /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A92BB2E097003724BF /* CheckBox.swift */; };
+		2CE107AD2BB2E868003724BF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CE107AC2BB2E868003724BF /* SnapKit */; };
+		2CE107AF2BB2E868003724BF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 2CE107AE2BB2E868003724BF /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,7 @@
 		2CE1079F2BB1DE40003724BF /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		2CE107A42BB2C795003724BF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		2CE107A92BB2E097003724BF /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE107AD2BB2E868003724BF /* SnapKit in Frameworks */,
+				2CE107AF2BB2E868003724BF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +75,7 @@
 				2C566E752BB18148008CCE19 /* ViewController.swift */,
 				2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */,
 				2CE1079D2BB1DCA3003724BF /* AddActivity.swift */,
+				2CE107A92BB2E097003724BF /* CheckBox.swift */,
 				2C566E772BB18148008CCE19 /* Main.storyboard */,
 				2C566E7A2BB18149008CCE19 /* Assets.xcassets */,
 				2C566E7C2BB18149008CCE19 /* LaunchScreen.storyboard */,
@@ -103,6 +110,10 @@
 			dependencies = (
 			);
 			name = Growth;
+			packageProductDependencies = (
+				2CE107AC2BB2E868003724BF /* SnapKit */,
+				2CE107AE2BB2E868003724BF /* SnapKit-Dynamic */,
+			);
 			productName = Growth;
 			productReference = 2C566E6E2BB18148008CCE19 /* Growth.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 2C566E652BB18148008CCE19;
+			packageReferences = (
+				2CE107AB2BB2E868003724BF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2C566E6F2BB18148008CCE19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -158,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE107AA2BB2E097003724BF /* CheckBox.swift in Sources */,
 				2C566E762BB18148008CCE19 /* ViewController.swift in Sources */,
 				2CE107A52BB2C795003724BF /* Data.swift in Sources */,
 				2C566E722BB18148008CCE19 /* AppDelegate.swift in Sources */,
@@ -387,6 +402,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2CE107AB2BB2E868003724BF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2CE107AC2BB2E868003724BF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CE107AB2BB2E868003724BF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2CE107AE2BB2E868003724BF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CE107AB2BB2E868003724BF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C566E662BB18148008CCE19 /* Project object */;
 }

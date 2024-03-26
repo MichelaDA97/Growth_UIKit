@@ -52,6 +52,14 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    //check list
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+//        } else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+//        }
+//    }
     
     // Overrides the method to specify the height for each row in the table view.
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

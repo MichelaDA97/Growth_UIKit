@@ -23,7 +23,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8c-8y-ITE">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8c-8y-ITE" customClass="CheckBox" customModule="Growth" customModuleProvider="target">
                                             <rect key="frame" x="14" y="4" width="49" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
@@ -49,11 +49,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="e4N-Vm-vtV">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="EWU-Zp-veq">
-                            <connections>
-                                <segue destination="yci-ZY-5gY" kind="presentation" destinationCreationSelector="segueToAddActivity:" id="NZL-Sh-1oh"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="EWU-Zp-veq">
+                                <connections>
+                                    <segue destination="yci-ZY-5gY" kind="presentation" destinationCreationSelector="segueToAddActivity:" id="NZL-Sh-1oh"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="xmark.bin" catalog="system" id="rtg-b8-gj6"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhR-Gs-jet" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -90,6 +93,7 @@
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square" catalog="system" width="128" height="114"/>
+        <image name="xmark.bin" catalog="system" width="128" height="92"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
