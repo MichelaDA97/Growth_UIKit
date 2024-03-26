@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
-struct Activities : Identifiable, Hashable{
+struct Activities {
     
     var id = UUID()
     var text: String
     var squareSelected : Bool = false
     //var isOn : Bool = false
+    
+    
     
     
     

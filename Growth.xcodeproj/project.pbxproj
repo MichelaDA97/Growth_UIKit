@@ -15,6 +15,8 @@
 		2C566E7E2BB18149008CCE19 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2C566E7D2BB18149008CCE19 /* Base */; };
 		2CE1079E2BB1DCA3003724BF /* AddActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1079D2BB1DCA3003724BF /* AddActivity.swift */; };
 		2CE107A02BB1DE40003724BF /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1079F2BB1DE40003724BF /* Activities.swift */; };
+		2CE107A52BB2C795003724BF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A42BB2C795003724BF /* Data.swift */; };
+		2CE107A72BB2CB58003724BF /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		2C566E7F2BB18149008CCE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE1079D2BB1DCA3003724BF /* AddActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivity.swift; sourceTree = "<group>"; };
 		2CE1079F2BB1DE40003724BF /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
+		2CE107A42BB2C795003724BF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +67,12 @@
 				2C566E712BB18148008CCE19 /* AppDelegate.swift */,
 				2C566E732BB18148008CCE19 /* SceneDelegate.swift */,
 				2C566E752BB18148008CCE19 /* ViewController.swift */,
+				2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */,
+				2CE1079D2BB1DCA3003724BF /* AddActivity.swift */,
 				2C566E772BB18148008CCE19 /* Main.storyboard */,
 				2C566E7A2BB18149008CCE19 /* Assets.xcassets */,
 				2C566E7C2BB18149008CCE19 /* LaunchScreen.storyboard */,
 				2C566E7F2BB18149008CCE19 /* Info.plist */,
-				2CE1079D2BB1DCA3003724BF /* AddActivity.swift */,
 				2CE107A12BB1E0F5003724BF /* Models */,
 			);
 			path = Growth;
@@ -77,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE1079F2BB1DE40003724BF /* Activities.swift */,
+				2CE107A42BB2C795003724BF /* Data.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,8 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C566E762BB18148008CCE19 /* ViewController.swift in Sources */,
+				2CE107A52BB2C795003724BF /* Data.swift in Sources */,
 				2C566E722BB18148008CCE19 /* AppDelegate.swift in Sources */,
 				2CE1079E2BB1DCA3003724BF /* AddActivity.swift in Sources */,
+				2CE107A72BB2CB58003724BF /* ActivityTableViewCell.swift in Sources */,
 				2CE107A02BB1DE40003724BF /* Activities.swift in Sources */,
 				2C566E742BB18148008CCE19 /* SceneDelegate.swift in Sources */,
 			);
