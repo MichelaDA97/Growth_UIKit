@@ -16,14 +16,10 @@ struct AddActivity: View {
     @Environment(\.presentationMode) var presentationMode
     
     func saveButtonPressed(){
-        // Controlla se il campo di testo non è vuoto prima di salvare l'attività
-        guard !textFieldText.isEmpty else {
-                  return
-              }
-        
+     
         //salva
         let newActivity = Activities(text: textFieldText)
-       // Activities.sampleActivity.append(newActivity)
+        sampleActivity.append(newActivity)
         
         // Chiudi la modalità di presentazione dopo aver salvato l'attività
         presentationMode.wrappedValue.dismiss()
