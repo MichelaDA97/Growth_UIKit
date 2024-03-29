@@ -18,8 +18,6 @@
 		2CE107A52BB2C795003724BF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A42BB2C795003724BF /* Data.swift */; };
 		2CE107A72BB2CB58003724BF /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */; };
 		2CE107AA2BB2E097003724BF /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE107A92BB2E097003724BF /* CheckBox.swift */; };
-		2CE107AD2BB2E868003724BF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2CE107AC2BB2E868003724BF /* SnapKit */; };
-		2CE107AF2BB2E868003724BF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 2CE107AE2BB2E868003724BF /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,14 +41,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE107AD2BB2E868003724BF /* SnapKit in Frameworks */,
-				2CE107AF2BB2E868003724BF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2B9B592BB72F6C00915919 /* SwiftUIView */ = {
+			isa = PBXGroup;
+			children = (
+				2CE1079D2BB1DCA3003724BF /* AddActivity.swift */,
+			);
+			path = SwiftUIView;
+			sourceTree = "<group>";
+		};
 		2C566E652BB18148008CCE19 = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +78,7 @@
 				2C566E732BB18148008CCE19 /* SceneDelegate.swift */,
 				2C566E752BB18148008CCE19 /* ViewController.swift */,
 				2CE107A62BB2CB58003724BF /* ActivityTableViewCell.swift */,
-				2CE1079D2BB1DCA3003724BF /* AddActivity.swift */,
+				2C2B9B592BB72F6C00915919 /* SwiftUIView */,
 				2CE107A92BB2E097003724BF /* CheckBox.swift */,
 				2C566E772BB18148008CCE19 /* Main.storyboard */,
 				2C566E7A2BB18149008CCE19 /* Assets.xcassets */,
@@ -111,8 +115,6 @@
 			);
 			name = Growth;
 			packageProductDependencies = (
-				2CE107AC2BB2E868003724BF /* SnapKit */,
-				2CE107AE2BB2E868003724BF /* SnapKit-Dynamic */,
 			);
 			productName = Growth;
 			productReference = 2C566E6E2BB18148008CCE19 /* Growth.app */;
@@ -413,19 +415,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2CE107AC2BB2E868003724BF /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2CE107AB2BB2E868003724BF /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		2CE107AE2BB2E868003724BF /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2CE107AB2BB2E868003724BF /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2C566E662BB18148008CCE19 /* Project object */;
 }

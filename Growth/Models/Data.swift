@@ -11,11 +11,11 @@ import UIKit
 
 var sampleActivity : [Activities] = [
 
-        Activities(text: "Drink water frist💧"),
-        Activities(text: "Have a breakfast🥞"),
-        Activities(text: "Do exercise🏋🏻"),
-        Activities(text: "Meditate for 10 min🧘🏻"),
-        Activities(text: "Read for 15 min📖")
+    Activities(text: "Drink water frist💧", minutes: 2),
+    Activities(text: "Have a breakfast🥞", minutes: 15),
+    Activities(text: "Do exercise🏋🏻", minutes: 20),
+    Activities(text: "Meditate🧘🏻", minutes: 10),
+    Activities(text: "Read📖", minutes: 10)
         
 
 ]

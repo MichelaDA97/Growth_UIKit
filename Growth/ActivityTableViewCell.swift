@@ -11,6 +11,8 @@ class ActivityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var textActivity: UILabel!
     
+    @IBOutlet weak var time: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,6 +28,8 @@ class ActivityTableViewCell: UITableViewCell {
     
     func update(with sampleActivities : Activities) {
         textActivity.text = sampleActivities.text
+        time.text = "\(sampleActivities.minutes) min"
+        
     }
 }
 

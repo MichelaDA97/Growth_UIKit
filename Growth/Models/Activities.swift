@@ -14,7 +14,7 @@ struct Activities {
     var text: String
     var squareSelected : Bool = false
     //var isOn : Bool = false
-    
+    var minutes : Int
     
     
     

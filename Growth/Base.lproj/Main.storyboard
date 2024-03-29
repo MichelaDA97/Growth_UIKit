@@ -16,11 +16,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hio-lg-a1H" customClass="ActivityTableViewCell" customModule="Growth" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="66" id="hio-lg-a1H" customClass="ActivityTableViewCell" customModule="Growth" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hio-lg-a1H" id="Jwz-qz-Ck9">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8c-8y-ITE" customClass="CheckBox" customModule="Growth" customModuleProvider="target">
@@ -29,17 +29,25 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t00-xb-xrH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="activityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t00-xb-xrH">
                                             <rect key="frame" x="62" y="11" width="311" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwg-8Z-wSs">
+                                            <rect key="frame" x="62" y="34" width="99" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textActivity" destination="t00-xb-xrH" id="Xsa-RC-m5P"/>
+                                    <outlet property="time" destination="Xwg-8Z-wSs" id="oPN-s5-PCE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +63,11 @@
                                     <segue destination="yci-ZY-5gY" kind="presentation" destinationCreationSelector="segueToAddActivity:" id="NZL-Sh-1oh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="xmark.bin" catalog="system" id="rtg-b8-gj6"/>
+                            <barButtonItem title="Item" image="xmark.bin" catalog="system" id="rtg-b8-gj6">
+                                <connections>
+                                    <action selector="deleteButton:" destination="dud-gA-O2d" id="6KA-uR-eAc"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
@@ -66,7 +78,9 @@
         <!--Hosting Controller-->
         <scene sceneID="cch-ku-9i6">
             <objects>
-                <hostingController id="yci-ZY-5gY" sceneMemberID="viewController"/>
+                <hostingController id="yci-ZY-5gY" sceneMemberID="viewController">
+                    <value key="contentSizeForViewInPopover" type="size" width="0.0" height="2"/>
+                </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kDu-Q0-flJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1404" y="-154"/>
@@ -96,6 +110,9 @@
         <image name="xmark.bin" catalog="system" width="128" height="92"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -10,21 +10,39 @@ import SwiftUI
 
 class ViewController: UITableViewController {
     
+    // Segue is used when + is tapped
     @IBSegueAction func segueToAddActivity(_ coder: NSCoder) -> UIViewController? {
+        
         return UIHostingController(coder: coder, rootView: AddActivity())
     }
     
+    @IBAction func deleteButton(_ sender: UIBarButtonItem) {
+        // create the alert
+        let alert = UIAlertController(title: "Delete items", message: "Do you want delete all the activities?", preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: {
+            action in
+            sampleActivity.removeAll()
+            self.tableView.reloadData()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         // Displays an Edit button in the navigation bar for this view controller.
-         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         self.title = "Personal Growth"
     }
-
+    
     // MARK: - Table view data source
     
     // Specifies the number of sections in the UITableView.
@@ -32,7 +50,7 @@ class ViewController: UITableViewController {
         // Returns 1 indicating that the table view will have a single section.
         return 1
     }
-
+    
     // Specifies the number of rows in a given section of the UITableView.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Returns the total number of mentors, thereby setting the number of rows in the table view.
@@ -44,22 +62,22 @@ class ViewController: UITableViewController {
         
         let index = indexPath.row
         let activities = sampleActivity[index]
-//        cell.textLabel?.text = activities.text
+        //        cell.textLabel?.text = activities.text
         cell.update(with: activities)
         
         
-      
+        
         return cell
     }
     
-    //check list
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
-//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-//        } else {
-//            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-//        }
-//    }
+    // check list alternative
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+    //            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+    //        } else {
+    //            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+    //        }
+    //    }
     
     // Overrides the method to specify the height for each row in the table view.
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,6 +106,6 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-
+    
 }
 
