@@ -13,8 +13,41 @@ class ViewController: UITableViewController {
     // Segue is used when + is tapped
     @IBSegueAction func segueToAddActivity(_ coder: NSCoder) -> UIViewController? {
         
-        return UIHostingController(coder: coder, rootView: AddActivity())
+        //        return UIHostingController(coder: coder, rootView: AddActivity())
+        
+        var addActivityView = AddActivity()
+        
+        // To save the activity from SwiftUI in UIKit
+        addActivityView.completionHandler = { [weak self] activity in
+            self?.addActivity(activity)
+        }
+        
+        return UIHostingController(coder: coder, rootView: addActivityView)
     }
+    
+    
+    func addActivity(_ activity: Activities) {
+        sampleActivity.append(activity)
+        saveActivities()
+        tableView.reloadData()
+    }
+    
+    
+    // Function to save activities to UserDefaults
+    func saveActivities() {
+        let activitiesData = try? NSKeyedArchiver.archivedData(withRootObject: sampleActivity, requiringSecureCoding: false)
+        UserDefaults.standard.set(activitiesData, forKey: "activities")
+    }
+    
+    // Function to load activities from UserDefaults
+    func loadActivities() {
+        if let activitiesData = UserDefaults.standard.data(forKey: "activities"),
+           let activities = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(activitiesData) as? [Activities] {
+            sampleActivity = activities
+            tableView.reloadData()
+        }
+    }
+    
     
     @IBAction func deleteButton(_ sender: UIBarButtonItem) {
         // create the alert
@@ -35,7 +68,10 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Load activities when the view loads
+        loadActivities()
+        
         
         // Displays an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
@@ -92,6 +128,7 @@ class ViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             sampleActivity.remove(at: indexPath.row)
+            saveActivities()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

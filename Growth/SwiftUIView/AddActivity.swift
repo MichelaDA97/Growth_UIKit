@@ -18,11 +18,13 @@ struct AddActivity: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    var completionHandler: ((Activities) -> Void)?
+    
     func saveButtonPressed(){
         
-        // Save the activity
+        // Save the activity        
         let newActivity = Activities(text: textFieldText, minutes: minutes)
-        sampleActivity.append(newActivity)
+        completionHandler?(newActivity)
         
         print(newActivity)
         
@@ -31,6 +33,8 @@ struct AddActivity: View {
     }
     
     var body: some View {
+        
+        
         NavigationView{
             
             VStack{
@@ -38,7 +42,7 @@ struct AddActivity: View {
                 VStack(alignment: .leading){
                     Text("New activity:")
                     
-                    TextField("", text: $textFieldText)
+                    TextField(" ", text: $textFieldText)
                         .frame(height: 45)
                         .frame(maxWidth: .infinity)
                         .background(Color(red: 0.96, green: 0.96, blue: 0.96))
@@ -67,7 +71,7 @@ struct AddActivity: View {
                     Text("Set duration: ")
         
                         .frame(width: 150, height: 50)
-                        .padding(.trailing, 155)
+                        .padding(.trailing, 157)
         
                  
                     
@@ -115,9 +119,11 @@ struct AddActivity: View {
             
             
         }
+
         
         
     }
+    
 }
 
 #Preview {
