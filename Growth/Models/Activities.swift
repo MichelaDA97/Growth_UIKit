@@ -12,8 +12,6 @@ struct Activities {
     
     var id = UUID()
     var text: String
-    var squareSelected : Bool = false
-    //var isOn : Bool = false
     var minutes : Int
     
     

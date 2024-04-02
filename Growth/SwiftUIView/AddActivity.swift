@@ -13,17 +13,20 @@ struct AddActivity: View {
     
 
     @State var minutes = 0
-
+    
+    @State var sampleActivity: [Activities] = []
     
     @Environment(\.presentationMode) var presentationMode
     
     func saveButtonPressed(){
         
-        //salva
+        // Save the activity
         let newActivity = Activities(text: textFieldText, minutes: minutes)
         sampleActivity.append(newActivity)
         
-        // Chiudi la modalità di presentazione dopo aver salvato l'attività
+        print(newActivity)
+        
+        // Close the modal view by clicking the button "Save"
         presentationMode.wrappedValue.dismiss()
     }
     
@@ -120,3 +123,6 @@ struct AddActivity: View {
 #Preview {
     AddActivity()
 }
+
+
+

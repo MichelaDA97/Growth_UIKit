@@ -40,7 +40,7 @@ class ViewController: UITableViewController {
         // Displays an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        self.title = "Personal Growth"
+        self.title = "Daily Routine"
     }
     
     // MARK: - Table view data source
