@@ -12,7 +12,7 @@ class ViewController: UITableViewController {
     
     // Segue is used when + is tapped
     @IBSegueAction func segueToAddActivity(_ coder: NSCoder) -> UIViewController? {
-       
+        
         
         var addActivityView = AddActivity()
         
@@ -41,30 +41,39 @@ class ViewController: UITableViewController {
     
     // Function to save activities to UserDefaults
     func saveActivities() {
-          do {
-              let encoder = JSONEncoder()
-              let data = try encoder.encode(sampleActivity)
-              UserDefaults.standard.set(data, forKey: "activities")
-          } catch {
-              print("Error saving activities: \(error)")
-          }
-      }
-
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(sampleActivity)
+            UserDefaults.standard.set(data, forKey: "activities")
+        } catch {
+            print("Error saving activities: \(error)")
+        }
+    }
+    
     // Function to load activities from UserDefaults
     func loadActivities() {
         if let data = UserDefaults.standard.data(forKey: "activities") {
             do {
                 let decoder = JSONDecoder()
                 let activities = try decoder.decode([Activities].self, from: data)
-                sampleActivity = activities
-                tableView.reloadData()
+                 sampleActivity = activities
+                 tableView.reloadData()
+                
+                // Aggiorna lo stato del checkbox per ciascuna attività caricata
+                for activity in activities {
+                    if let index = sampleActivity.firstIndex(where: { $0.id == activity.id }) {
+                        sampleActivity[index].isCheck = activity.isCheck
+                        
+                    }
+                }
+
             } catch {
                 print("Error loading activities: \(error)")
             }
         }
     }
     
-   
+    
     
     
     // Delete all items
@@ -110,7 +119,7 @@ class ViewController: UITableViewController {
     // Specifies the number of rows in a given section of the UITableView.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Returns the total number of mentors, thereby setting the number of rows in the table view.
-
+        
         return sampleActivity.count
     }
     
@@ -121,7 +130,7 @@ class ViewController: UITableViewController {
         let activities = sampleActivity[index]
         //        cell.textLabel?.text = activities.text
         cell.update(with: activities)
-
+        
         
         return cell
     }
@@ -134,6 +143,33 @@ class ViewController: UITableViewController {
     //            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
     //        }
     //    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+//        var activity = sampleActivity[indexPath.row]
+//        activity.isCheck.toggle()
+//        sampleActivity[indexPath.row] = activity // Aggiorna l'attività nell'array
+//        saveActivities() // Salva le attività dopo la modifica
+//        tableView.reloadRows(at: [indexPath], with: .none) // Ricarica solo la cella selezionata
+        
+        
+        // Inverti lo stato del checkbox
+            var activity = sampleActivity[indexPath.row]
+            activity.isCheck.toggle()
+            sampleActivity[indexPath.row] = activity
+            
+            // Aggiorna l'aspetto della cella selezionata
+            if let cell = tableView.cellForRow(at: indexPath) as? ActivityTableViewCell {
+                cell.checkboxButton.isChecked = activity.isCheck
+            }
+            
+            // Deseleziona la cella
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            // Salva le attività dopo l'aggiornamento
+            saveActivities()
+    }
     
     // Overrides the method to specify the height for each row in the table view.
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -164,7 +200,7 @@ class ViewController: UITableViewController {
     
     // Ask the delegate for the editing style of a row at a particular location in a table view.
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-
+        
         return .delete
     }
     

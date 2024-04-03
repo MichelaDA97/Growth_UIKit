@@ -13,7 +13,7 @@ struct Activities: Encodable, Decodable {
     var id = UUID()
     var text: String
     var minutes : Int
-    
+    var isCheck : Bool
     
     
     

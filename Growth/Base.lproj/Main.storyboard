@@ -56,7 +56,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="textActivity" destination="t00-xb-xrH" id="Xsa-RC-m5P"/>
+                                    <outlet property="checkboxButton" destination="V8c-8y-ITE" id="B4J-Cs-1Tc"/>
+                                    <outlet property="textActivity" destination="t00-xb-xrH" id="cCk-YN-vb6"/>
                                     <outlet property="time" destination="Xwg-8Z-wSs" id="oPN-s5-PCE"/>
                                 </connections>
                             </tableViewCell>

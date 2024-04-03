@@ -14,6 +14,8 @@ struct AddActivity: View {
 
     @State var minutes = 0
     
+    @State var checking : Bool = false
+    
     @State var sampleActivity: [Activities] = []
     
     @Environment(\.presentationMode) var presentationMode
@@ -43,7 +45,7 @@ struct AddActivity: View {
            
         
         // Save the activity        
-        let newActivity = Activities(text: textFieldText, minutes: minutes)
+        let newActivity = Activities(text: textFieldText, minutes: minutes, isCheck: checking)
         completionHandler?(newActivity)
         
         print(newActivity)

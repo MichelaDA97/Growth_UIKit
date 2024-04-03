@@ -9,6 +9,8 @@ import UIKit
 
 class ActivityTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var checkboxButton: CheckBox!
+    
     @IBOutlet weak var textActivity: UILabel!
     
     @IBOutlet weak var time: UILabel!
@@ -29,6 +31,9 @@ class ActivityTableViewCell: UITableViewCell {
     func update(with sampleActivities : Activities) {
         textActivity.text = sampleActivities.text
         time.text = "\(sampleActivities.minutes) min"
+        
+        checkboxButton.isChecked = sampleActivities.isCheck
+        
         
     }
 }

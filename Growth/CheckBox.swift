@@ -21,14 +21,17 @@ class CheckBox: UIButton {
         
     // Check the event
     override func awakeFromNib() {
-        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
+        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpOutside)
         self.isChecked = false
     }
         
-    // Reset chechmark
+     
     @objc func buttonClicked(sender: UIButton) {
-        if sender == self {
-            isChecked = !isChecked
-        }
+//        if sender == self {
+//            isChecked = !isChecked
+//        }
+        
+        isChecked.toggle()
+        sendActions(for: .valueChanged)
     }
 }
