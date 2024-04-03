@@ -4,7 +4,8 @@
 The idea from which this app was born is to help people to follow a routine of daily habits. 
 I tried to replicate the same app that I wrote in <a href="https://github.com/MichelaDA97/MorningGrowth.git">SwiftUI</a>.
 
-<img src="Poster2.png" align="right" Hspace="20" width="240">
+<img src="iPhone 14 Pro.png" align="right" width="220">
+<img src="iPhone 14 Pro copia.png" align="right" width="220">
 
 In particular, in this project I focused my attention on the UIKit framework and on passing data from SwiftUI to UIKit. 
 
