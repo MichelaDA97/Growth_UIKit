@@ -19,7 +19,7 @@ class CheckBox: UIButton {
         }
     }
         
-    // Check the event
+    // Check the event - entire cell clicked on/off
     override func awakeFromNib() {
         self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpOutside)
         self.isChecked = false
@@ -27,10 +27,6 @@ class CheckBox: UIButton {
         
      
     @objc func buttonClicked(sender: UIButton) {
-//        if sender == self {
-//            isChecked = !isChecked
-//        }
-        
         isChecked.toggle()
         sendActions(for: .valueChanged)
     }

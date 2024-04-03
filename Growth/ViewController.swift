@@ -59,7 +59,7 @@ class ViewController: UITableViewController {
                  sampleActivity = activities
                  tableView.reloadData()
                 
-                // Aggiorna lo stato del checkbox per ciascuna attività caricata
+                // Update checkbox state for each activity loaded
                 for activity in activities {
                     if let index = sampleActivity.firstIndex(where: { $0.id == activity.id }) {
                         sampleActivity[index].isCheck = activity.isCheck
@@ -123,12 +123,12 @@ class ViewController: UITableViewController {
         return sampleActivity.count
     }
     
+    // Update
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ActivityTableViewCell
         
         let index = indexPath.row
         let activities = sampleActivity[index]
-        //        cell.textLabel?.text = activities.text
         cell.update(with: activities)
         
         
@@ -147,27 +147,20 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-//        var activity = sampleActivity[indexPath.row]
-//        activity.isCheck.toggle()
-//        sampleActivity[indexPath.row] = activity // Aggiorna l'attività nell'array
-//        saveActivities() // Salva le attività dopo la modifica
-//        tableView.reloadRows(at: [indexPath], with: .none) // Ricarica solo la cella selezionata
-        
-        
-        // Inverti lo stato del checkbox
+            // Checkbox state reverse
             var activity = sampleActivity[indexPath.row]
             activity.isCheck.toggle()
             sampleActivity[indexPath.row] = activity
             
-            // Aggiorna l'aspetto della cella selezionata
+            // Update selected cell
             if let cell = tableView.cellForRow(at: indexPath) as? ActivityTableViewCell {
                 cell.checkboxButton.isChecked = activity.isCheck
             }
             
-            // Deseleziona la cella
+            // Deselect cell
             tableView.deselectRow(at: indexPath, animated: true)
             
-            // Salva le attività dopo l'aggiornamento
+            // Save
             saveActivities()
     }
     
