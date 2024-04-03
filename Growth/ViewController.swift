@@ -12,20 +12,26 @@ class ViewController: UITableViewController {
     
     // Segue is used when + is tapped
     @IBSegueAction func segueToAddActivity(_ coder: NSCoder) -> UIViewController? {
-        
-        //        return UIHostingController(coder: coder, rootView: AddActivity())
+       
         
         var addActivityView = AddActivity()
         
         // To save the activity from SwiftUI in UIKit
         addActivityView.completionHandler = { [weak self] activity in
             self?.addActivity(activity)
+            
         }
         
-        return UIHostingController(coder: coder, rootView: addActivityView)
+        let controller = UIHostingController(coder: coder, rootView: addActivityView)
+        
+        
+        // To set dimensions of the modal view
+        controller?.sheetPresentationController?.detents = [.medium()]
+        
+        return controller
     }
     
-    
+    // Add activity in the list
     func addActivity(_ activity: Activities) {
         sampleActivity.append(activity)
         saveActivities()
@@ -35,20 +41,33 @@ class ViewController: UITableViewController {
     
     // Function to save activities to UserDefaults
     func saveActivities() {
-        let activitiesData = try? NSKeyedArchiver.archivedData(withRootObject: sampleActivity, requiringSecureCoding: false)
-        UserDefaults.standard.set(activitiesData, forKey: "activities")
-    }
-    
+          do {
+              let encoder = JSONEncoder()
+              let data = try encoder.encode(sampleActivity)
+              UserDefaults.standard.set(data, forKey: "activities")
+          } catch {
+              print("Error saving activities: \(error)")
+          }
+      }
+
     // Function to load activities from UserDefaults
     func loadActivities() {
-        if let activitiesData = UserDefaults.standard.data(forKey: "activities"),
-           let activities = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(activitiesData) as? [Activities] {
-            sampleActivity = activities
-            tableView.reloadData()
+        if let data = UserDefaults.standard.data(forKey: "activities") {
+            do {
+                let decoder = JSONDecoder()
+                let activities = try decoder.decode([Activities].self, from: data)
+                sampleActivity = activities
+                tableView.reloadData()
+            } catch {
+                print("Error loading activities: \(error)")
+            }
         }
     }
     
+   
     
+    
+    // Delete all items
     @IBAction func deleteButton(_ sender: UIBarButtonItem) {
         // create the alert
         let alert = UIAlertController(title: "Delete items", message: "Do you want delete all the activities?", preferredStyle: UIAlertController.Style.alert)
@@ -57,6 +76,7 @@ class ViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: {
             action in
             sampleActivity.removeAll()
+            self.saveActivities()
             self.tableView.reloadData()
         }))
         
@@ -90,6 +110,7 @@ class ViewController: UITableViewController {
     // Specifies the number of rows in a given section of the UITableView.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Returns the total number of mentors, thereby setting the number of rows in the table view.
+
         return sampleActivity.count
     }
     
@@ -100,8 +121,7 @@ class ViewController: UITableViewController {
         let activities = sampleActivity[index]
         //        cell.textLabel?.text = activities.text
         cell.update(with: activities)
-        
-        
+
         
         return cell
     }
@@ -128,8 +148,9 @@ class ViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             sampleActivity.remove(at: indexPath.row)
-            saveActivities()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.saveActivities()
+            self.tableView.reloadData()
         }
     }
     
@@ -137,10 +158,13 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let movedActivity = sampleActivity.remove(at: fromIndexPath.row)
         sampleActivity.insert(movedActivity, at: to.row)
+        self.saveActivities()
+        self.tableView.reloadData()
     }
     
     // Ask the delegate for the editing style of a row at a particular location in a table view.
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+
         return .delete
     }
     

@@ -20,7 +20,27 @@ struct AddActivity: View {
     
     var completionHandler: ((Activities) -> Void)?
     
+    @State private var showingAlertTime = false
+    @State private var showingAlertActivity = false
+    
     func saveButtonPressed(){
+        
+        // Check if the text field is empty
+           guard !textFieldText.isEmpty else {
+               // Show an alert
+               showingAlertActivity = true
+               return
+               
+           }
+           
+           // Check if the duration is set to zero
+           guard minutes > 0 else {
+               // Show an alert
+               showingAlertTime = true
+               return
+               
+           }
+           
         
         // Save the activity        
         let newActivity = Activities(text: textFieldText, minutes: minutes)
@@ -48,6 +68,7 @@ struct AddActivity: View {
                         .background(Color(red: 0.96, green: 0.96, blue: 0.96))
                         .cornerRadius(7)
                         .shadow(radius: 0.5)
+                       
                     
                     
                 }
@@ -99,7 +120,7 @@ struct AddActivity: View {
                 
    
                 
-                Button(action: saveButtonPressed, label: {
+                Button(action: saveButtonPressed , label: {
                     
                     Text("Save".uppercased())
                         .foregroundColor(.white)
@@ -111,16 +132,22 @@ struct AddActivity: View {
                         .padding(.horizontal, 10)
                         .padding(.vertical)
                     
-                })
+                }) 
+                .alert(isPresented: $showingAlertActivity){
+                    Alert(title: Text("Error"), message: Text("Please fill the activity field."), dismissButton: .default(Text("OK")))
+                    
+                }
                 
             }
 
             
             
             
+        }.alert(isPresented: $showingAlertTime){
+            Alert(title: Text("Error"), message: Text("Please fill the duration field."), dismissButton: .default(Text("OK")))
         }
 
-        
+        Spacer(minLength: 100)
         
     }
     

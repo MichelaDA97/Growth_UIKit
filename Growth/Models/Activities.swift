@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Activities {
+struct Activities: Encodable, Decodable {
     
     var id = UUID()
     var text: String

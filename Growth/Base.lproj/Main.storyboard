@@ -23,27 +23,37 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8c-8y-ITE" customClass="CheckBox" customModule="Growth" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8c-8y-ITE" customClass="CheckBox" customModule="Growth" customModuleProvider="target">
                                             <rect key="frame" x="14" y="4" width="49" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="activityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t00-xb-xrH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="activityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t00-xb-xrH">
                                             <rect key="frame" x="62" y="11" width="311" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwg-8Z-wSs">
-                                            <rect key="frame" x="62" y="34" width="99" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwg-8Z-wSs">
+                                            <rect key="frame" x="62" y="34" width="118" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="V8c-8y-ITE" firstAttribute="leading" secondItem="Jwz-qz-Ck9" secondAttribute="leading" constant="14" id="0YM-fj-WZs"/>
+                                        <constraint firstItem="t00-xb-xrH" firstAttribute="leading" secondItem="Jwz-qz-Ck9" secondAttribute="leadingMargin" constant="42" id="1Uw-QZ-Kmv"/>
+                                        <constraint firstItem="Xwg-8Z-wSs" firstAttribute="bottom" secondItem="Jwz-qz-Ck9" secondAttribute="bottomMargin" id="1ol-nz-d4G"/>
+                                        <constraint firstItem="t00-xb-xrH" firstAttribute="top" secondItem="Jwz-qz-Ck9" secondAttribute="topMargin" id="Be6-zN-zke"/>
+                                        <constraint firstItem="t00-xb-xrH" firstAttribute="trailing" secondItem="Jwz-qz-Ck9" secondAttribute="trailingMargin" id="P5M-yr-Dnq"/>
+                                        <constraint firstAttribute="trailing" secondItem="V8c-8y-ITE" secondAttribute="trailing" constant="330" id="VxB-Cn-SNv"/>
+                                        <constraint firstAttribute="bottom" secondItem="V8c-8y-ITE" secondAttribute="bottom" constant="27" id="XjL-Jb-hj3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Xwg-8Z-wSs" secondAttribute="trailing" constant="212" id="aMb-2s-O42"/>
+                                        <constraint firstItem="Xwg-8Z-wSs" firstAttribute="leading" secondItem="Jwz-qz-Ck9" secondAttribute="leadingMargin" constant="42" id="lKh-4g-e0f"/>
+                                        <constraint firstItem="Xwg-8Z-wSs" firstAttribute="top" secondItem="t00-xb-xrH" secondAttribute="bottom" constant="2" id="nbB-rN-npT"/>
+                                        <constraint firstItem="V8c-8y-ITE" firstAttribute="top" secondItem="Jwz-qz-Ck9" secondAttribute="top" constant="4" id="o1Y-Tn-pXE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textActivity" destination="t00-xb-xrH" id="Xsa-RC-m5P"/>
