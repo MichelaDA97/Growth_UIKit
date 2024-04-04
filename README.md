@@ -2,7 +2,7 @@
 
 <p>
 The idea from which this app was born is to help people to follow a routine of daily habits. 
-I tried to replicate the same app that I wrote in <a href="https://github.com/MichelaDA97/MorningGrowth.git">SwiftUI</a>.
+I tried to replicate the same <a href="https://github.com/MichelaDA97/MorningGrowth.git">app</a> that I wrote in SwiftUI.
 
 
 
