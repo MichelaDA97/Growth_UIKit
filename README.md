@@ -4,8 +4,7 @@
 The idea from which this app was born is to help people to follow a routine of daily habits. 
 I tried to replicate the same app that I wrote in <a href="https://github.com/MichelaDA97/MorningGrowth.git">SwiftUI</a>.
 
-<img src="iPhone 14 Pro.png" align="right" width="220">
-<img src="iPhone 14 Pro copia.png" align="right" width="220">
+
 
 In particular, in this project I focused my attention on the UIKit framework and on passing data from SwiftUI to UIKit. 
 
@@ -19,6 +18,9 @@ In particular, in this project I focused my attention on the UIKit framework and
 
 
 <h2>Usage:</h2>
+
+<img src="iPhone 14 Pro.png" align="right" width="220">
+<img src="iPhone 14 Pro copia.png" align="right" width="220">
 
 - **Adding Activities**: Tap the "+" button to add a new activity. Enter the title and duration of the activity (if you don't set the name and/or the time, an alert appears on your screen, only when you close the alert and fill in the empty fields, you can save your own habit), then tap "Save".
   
