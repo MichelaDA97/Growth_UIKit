@@ -19,7 +19,7 @@ In particular, in this project I focused my attention on the UIKit framework and
 
 <h2>Usage:</h2>
 
-<img src="iPhone 14 Pro copia.png" align="right" width="220">
+<img src="iPhone 14 Pro copia.png" align="left" width="220">
 
 - **Adding Activities**: Tap the "+" button to add a new activity. Enter the title and duration of the activity (if you don't set the name and/or the time, an alert appears on your screen, only when you close the alert and fill in the empty fields, you can save your own habit), then tap "Save".
   
