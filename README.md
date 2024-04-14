@@ -40,7 +40,7 @@ In particular, in this project I focused my attention on the UIKit framework and
 - Swift 5.0+
 
 <h2>Contributing:</h2>
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions, bug reports, or feature requests.
+Contributions are welcome! Please feel free to open an issue if you have any suggestions, bug reports, or feature requests.
 
 
 </p>
